@@ -1,6 +1,5 @@
 # csharp
-WIP
-Learning C# in my free time.
+- Work In Progress, learning C# in my free time.
 # RoadMap
 ## Basics
 - [Sintaxe]() 
