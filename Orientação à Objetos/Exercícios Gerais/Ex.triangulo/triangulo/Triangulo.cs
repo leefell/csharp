@@ -13,11 +13,5 @@ namespace triangulo
         public double B;
         public double C;
 
-        // nao precisa de parametros de entrada
-        public double calcArea()
-        {
-
-        } 
-
     }
 }

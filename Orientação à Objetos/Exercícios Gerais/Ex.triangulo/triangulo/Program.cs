@@ -28,8 +28,8 @@ namespace triangulo
             y.C = double.Parse(triangulo2[2], CultureInfo.InvariantCulture);
             p2 = perimetro(y.A, y.B, y.C);
 
-            double areaX = x.calcArea();
-            double areaY = y.calcArea();
+            double areaX = area(x.A, x.B, x.C);
+            double areaY = area(x.A, x.B, x.C);
 
             Console.WriteLine("Área de X: " + areaX.ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine("Área de Y: " + areaY.ToString("F2", CultureInfo.InvariantCulture));
@@ -42,6 +42,20 @@ namespace triangulo
             {
                 Console.WriteLine("Maior área: Y");
             }
+
+
         }
+
+        static double perimetro(double a, double b, double c)
+        {
+            return (a + b + c )/ 2;
+        }
+
+        static double area(double a, double b, double c)
+        {
+            double p = perimetro(a, b, c);
+            return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+        }
+
     }
 }
