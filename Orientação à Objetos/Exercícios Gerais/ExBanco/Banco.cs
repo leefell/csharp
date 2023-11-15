@@ -40,8 +40,7 @@ namespace ExBanco
 
         public override string ToString()
         {
-            return "Conta " + Numero + ", Titular: " + Titular +
-                ", Saldo: $" + Saldo.ToString("F2", CultureInfo.InvariantCulture);  
+            return "ID: " + Numero + "\nNome: " + Titular + "\nSaldo: $" + Saldo.ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
