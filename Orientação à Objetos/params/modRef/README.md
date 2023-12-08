@@ -9,3 +9,5 @@ Obriga que a variavel seja iniciada (int a = 10);
 ## Modificador out
 
 Similar ao ref(faz o parametro ser uma referencia para a variavel original) mas nao exige que seja iniciada.
+
+Entretanto são 'code smells'.
