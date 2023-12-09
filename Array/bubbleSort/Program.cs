@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Threading.Channels;
+
 namespace bubbleSort
 {
     internal class Program
@@ -23,8 +25,19 @@ namespace bubbleSort
 
             Console.WriteLine("\nArray após o sorting: ");
             mostrar(array);
-        }
 
+            Console.Write("\nDigite um número para verificar se está presente no array: ");
+            int chave = int.Parse(Console.ReadLine());
+            pesquisaBinaria(array, chave, nElementos);
+        }
+        static void mostrar(int[] array)
+        {
+
+            foreach (int elemento in array)
+            {
+                Console.Write(elemento + " ");
+            }
+        }
         static void BSort(int[] array)
         {
             int n = array.Length;
@@ -43,14 +56,29 @@ namespace bubbleSort
             }
         }
 
-        static void mostrar(int[] array)
+        static void pesquisaBinaria(int[] array, int chave, int qtd)
         {
 
-            foreach(int elemento in array)
+            int inf, sup, meio;
+            inf = 0;
+            sup = qtd - 1;
+            while(inf <= sup)
             {
-                Console.Write(elemento + " ");
+                meio = sup + inf / 2;
+                if(chave == array[meio])
+                {
+                    Console.WriteLine("O número está presente no array.");
+                    return;
+                }else if(chave < array[meio])
+                {
+                    sup = meio - 1;
+                }
+                else
+                {
+                    inf = meio + 1;
+                }
             }
-
-        } 
+            Console.WriteLine("Número não está presente no array.");
+        }
     }
 }
