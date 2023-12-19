@@ -1,4 +1,8 @@
-
+*.csproj
 *.vsidx
 *.json
 *.sqlite
+*.sln
+obj
+bin
+*.vs
