@@ -43,3 +43,8 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
+*.vsidx
+*.json
+*.sqlite
+*.sln
+*.vs
