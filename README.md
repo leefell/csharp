@@ -6,6 +6,5 @@
 - [Ponteiros](https://github.com/leefell/csharp/tree/main/Ponteiro)
 - [Arrays](https://github.com/leefell/csharp/tree/main/Array)
 - [List](https://github.com/leefell/csharp/tree/main/Listas)
-- [Enum](https://github.com/leefell/csharp/tree/main/Enum)
 - [Composition](https://github.com/leefell/csharp/tree/main/Composition)
 - [Exceptions](https://github.com/leefell/csharp/tree/main/Exceptions)
