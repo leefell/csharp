@@ -9,7 +9,7 @@
 
         public string Scan()
         {
-            return "Scanner scan result: ";
+            return "Scanner scan result ";
         }
     }
 }
