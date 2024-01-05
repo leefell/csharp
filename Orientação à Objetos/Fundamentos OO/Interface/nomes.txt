@@ -1,0 +1,10 @@
+Josue,5700.00
+Rodrigo,4800.50
+Mariana,6200.75
+Thiago,5300.25
+Guilherme,5100.80
+Beatriz,5500.40
+Ravi,4900.60
+Alexandre,6000.00
+Tangerina,5400.90
+Marcelo,5700.00
