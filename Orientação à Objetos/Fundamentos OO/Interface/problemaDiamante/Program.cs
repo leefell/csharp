@@ -13,6 +13,11 @@ namespace problemaDiamante
             Scanner s = new Scanner() { SerialNumber = 2003 };
             s.ProcessDoc("My email");
             Console.WriteLine(s.Scan());
+
+            ComboDevice c = new ComboDevice() { SerialNumber = 3028};
+            c.ProcessDoc("Meu TCC");
+            c.Print("Meu tcc");
+            Console.WriteLine(c.Scan());
         }
     }
 }

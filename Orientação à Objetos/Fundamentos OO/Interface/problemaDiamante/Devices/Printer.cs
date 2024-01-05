@@ -1,6 +1,6 @@
 ﻿namespace Devices
 {
-    internal class Printer : Device
+    internal class Printer : Device, IPrinter
     {
         public override void ProcessDoc(string document)
         {
