@@ -1,4 +1,6 @@
-﻿namespace interfaceComparable
+﻿using Entities;
+
+namespace interfaceComparable
 {
     internal class Program
     {
@@ -10,15 +12,15 @@
             {
                 using (StreamReader sr = File.OpenText(path))
                 {
-                    List<string> lista = new List<string>();
+                    List<Employee> lista = new List<Employee>();
                     while (!sr.EndOfStream)
                     {
-                        lista.Add(sr.ReadLine());
+                        lista.Add(new Employee(sr.ReadLine()));
                     }
-                    lista.Sort(); // ordernar lista
-                    foreach(string s in lista)
+                    lista.Sort(); // não tem como ordernar a lista se eu não souber como comparar um funcionário com o outro
+                    foreach(Employee e in lista)
                     {
-                        Console.WriteLine(s);
+                        Console.WriteLine(e);
                     }
                 }
             }
