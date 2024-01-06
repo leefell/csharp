@@ -1,11 +1,12 @@
 ﻿namespace genericspt1
 {
-    internal class PrintService
+    internal class PrintService<T> // agora a classe esta parametrizada por tipo
+        // então toda a classe printService é de um tipo generico especifico que no caso seria o 'T'
     {
-        private int[] _values = new int[10]; // variavel interna que armazena 10 int
+        private T[] _values = new T[10]; // variavel interna que armazena 10 int
         private int _count = 0;
 
-        public void AddValue(int value)
+        public void AddValue(T value)
         {   
             if(_count == 10)
             {
@@ -15,7 +16,7 @@
             _count++;
         }
 
-        public int First()
+        public T First()
         {
             if(_count == 0)
             {

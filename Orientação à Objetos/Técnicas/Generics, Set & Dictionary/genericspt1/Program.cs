@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            PrintService printService = new PrintService();
+            // Agora com o tipo generico o Typesafety esta habilitado 
+
+            PrintService<int> printService = new PrintService<int>();
+            //PrintService<string> printService = new PrintService<string>();
 
             Console.WriteLine("How many values: ");
             int n = int.Parse(Console.ReadLine());
@@ -15,6 +18,10 @@
                 int x = int.Parse(Console.ReadLine());
                 printService.AddValue(x);
             }
+
+            //int a = printService.First();
+            //int b = a + 2;
+            //Console.WriteLine(b);
 
             printService.Print();
 
