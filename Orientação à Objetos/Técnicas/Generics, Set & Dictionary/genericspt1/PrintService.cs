@@ -25,6 +25,14 @@
             return _values[0];
         }
 
+        public T Last()
+        {
+            if(_count == 0)
+            {
+                throw new InvalidOperationException("Print Service is empty");
+            }
+            return _values[_count - 1];
+        }
         public void Print()
         {
             Console.Write("[");

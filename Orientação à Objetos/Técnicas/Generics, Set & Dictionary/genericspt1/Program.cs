@@ -26,6 +26,7 @@
             printService.Print();
 
             Console.Write("\nFirst: " + printService.First());
+            Console.Write("\nLast: " + printService.Last());
         }
     }
 }
