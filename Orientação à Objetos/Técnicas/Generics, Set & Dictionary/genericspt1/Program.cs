@@ -27,6 +27,23 @@
 
             Console.Write("\nFirst: " + printService.First());
             Console.Write("\nLast: " + printService.Last());
+
+            PrintService<string> printService1 = new PrintService<string>();
+
+            Console.WriteLine("\nHow many names: ");
+            int m = int.Parse(Console.ReadLine());
+
+            for(int j = 0; j < m; j++)
+            {
+                Console.WriteLine($"Input name {j + 1}: ");
+                string nome = (Console.ReadLine());
+                printService1.AddValue(nome);
+            }
+
+            printService1.Print();
+
+            Console.Write("\nFirst: " + printService1.First());
+            Console.Write("\nLast: " + printService1.Last());
         }
     }
 }
