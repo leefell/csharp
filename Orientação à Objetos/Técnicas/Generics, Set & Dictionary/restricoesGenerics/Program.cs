@@ -1,4 +1,6 @@
-﻿using Services;
+﻿using Entities;
+using Services;
+using System.Globalization;
 
 namespace restricoesGenerics
 {
@@ -6,22 +8,25 @@ namespace restricoesGenerics
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int>();
+            List<Product> list = new List<Product>();
 
             Console.WriteLine("Input the number of products that will be registered: ");
             int n = int.Parse(Console.ReadLine());
 
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                int x = int.Parse(Console.ReadLine());
-                list.Add(x);
+                Console.Write($"Enter the name and price of product {i + 1} (name,price): " );
+                string[] array = Console.ReadLine().Split(",");
+                string name = array[0];
+                double price = double.Parse(array[1], CultureInfo.InvariantCulture);
+                list.Add(new Product(name, price));
             }
 
             CalculationService calculationService = new CalculationService();
 
-            int max = calculationService.Max(list);
+            Product max = calculationService.Max(list);
 
-            Console.WriteLine("Max: " + max);
+            Console.WriteLine("\nMax: " + max);
         }
     }
 }
