@@ -10,6 +10,7 @@ Este repositório é dedicado aos meus estudos da linguagem C#. Aqui, estou docu
 - [Arrays](https://github.com/leefell/csharp/tree/main/Array)
 - [Listas](https://github.com/leefell/csharp/tree/main/Listas)
 - [Composição](https://github.com/leefell/csharp/tree/main/Composition)
+- [Coleções](https://github.com/leefell/csharp/tree/main/Orienta%C3%A7%C3%A3o%20%C3%A0%20Objetos/T%C3%A9cnicas/Generics%2C%20Set%20%26%20Dictionary)
 
 ## Considerações
 
