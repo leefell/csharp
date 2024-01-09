@@ -9,5 +9,10 @@
             Name = name;
             Price = price;
         }
+
+        //public override int GetHashCode()
+        //{
+        //    return ;
+        //}
     }
 }
