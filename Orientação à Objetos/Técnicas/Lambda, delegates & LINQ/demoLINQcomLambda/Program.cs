@@ -36,21 +36,46 @@ namespace demoLINQcomLambda
                 new Product() { Id = 11, Name = "Level", Price = 70.0, Category = c1 }
             };
 
-            // Consulta com linq usando lambda
-            var resultado1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.00);
+            //var resultado1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.00);
+            var resultado1 = // sintaxe alternativa com notação similhar à SQL
+                from p in products
+                where p.Category.Tier == 1 && p.Price < 900.0
+                select p;
             Print("Tier 1 and Price < 900.00: ", resultado1);
 
-            var resultado2 = products.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+            //var resultado2 = products.Where(p => p.Category.Name == "Tools").Select(p => p.Name);
+            var resultado2 =
+                from p in products
+                where p.Category.Name == "Tools"
+                select p.Name;
             Print("Name of products from tools: ", resultado2);
 
-            //p => p.Name[0] == 'C'
-            var resultado3 = products.Where(p => p.Name.StartsWith('C')).Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
+            //p => p.Name[0] == 'C'                                                      // objeto anonimo
+            //var resultado3 = products.Where(p => p.Name.StartsWith('C')).Select(p => new { p.Name, p.Price, CategoryName = p.Category.Name });
+            var resultado3 =
+                from p in products
+                where p.Name.StartsWith('C')
+                select new
+                {
+                    p.Name,
+                    p.Price,
+                    CategoryName = p.Category.Name
+                };
             Print("Names stared with 'C' and Anonymous Object: ", resultado3);
 
-            var resultado4 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+            //var resultado4 = products.Where(p => p.Category.Tier == 1).OrderBy(p => p.Price).ThenBy(p => p.Name);
+            var resultado4 =
+                from p in products
+                where p.Category.Tier == 1
+                orderby p.Name
+                orderby p.Price
+                select p;
             Print("Tier 1 order by price and then by name: ", resultado4);
 
-            var resultado5 = resultado4.Skip(2).Take(4);
+            //var resultado5 = resultado4.Skip(2).Take(4);
+            var resultado5 =
+                (from p in resultado4
+                 select p).Skip(2).Take(4);
             Print("Tier 1 order by Price then by name skip 2 take 4", resultado5);
 
             var resultado6 = products.FirstOrDefault();
@@ -80,15 +105,18 @@ namespace demoLINQcomLambda
             Console.WriteLine("Category 5 Average Prices: " + resultado14);
 
             //Com o aggregate é possível implementar uma operação agregada personalizada
-            var resultado15 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x,y) => x + y);
+            var resultado15 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x, y) => x + y);
             Console.WriteLine("Category 1 aggregate sum: " + resultado15);
             Console.WriteLine();
 
-            var resultado16 = products.GroupBy(p => p.Category);
-            foreach(IGrouping<Category, Product> group in resultado16)
+            //var resultado16 = products.GroupBy(p => p.Category);
+            var resultado16 =
+                from p in products
+                group p by p.Category;
+            foreach (IGrouping<Category, Product> group in resultado16)
             {
                 Console.WriteLine("Category " + group.Key.Name + ": ");
-                foreach(Product p in group)
+                foreach (Product p in group)
                 {
                     Console.WriteLine(p);
                 }

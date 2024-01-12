@@ -11,7 +11,7 @@ namespace Entities
 
         public override string ToString()
         {
-            return "Id: " + Id + ", " + Name + ", " + Price.ToString("F2", CultureInfo.InvariantCulture) 
+            return "Id: " + Id + ", " + Name + ", " + Price.ToString("F2", CultureInfo.InvariantCulture)
                 + ", " + Category.Name + ", Tier: " + Category.Tier;
         }
     }
