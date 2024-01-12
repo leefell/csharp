@@ -64,6 +64,36 @@ namespace demoLINQcomLambda
 
             var resultado9 = products.Where(p => p.Id == 30).SingleOrDefault();
             Console.WriteLine("Single or default test2: " + resultado9);
+
+            var resultado10 = products.Max(p => p.Price);
+            Console.WriteLine("\nMax price: " + resultado10);
+            var resultado11 = products.Min(p => p.Price);
+            Console.WriteLine("Min price: " + resultado11);
+
+            var resultado12 = products.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+            Console.WriteLine("\nCategory 1 sum prices: " + resultado12);
+            var resultado13 = products.Where(p => p.Category.Id == 1).Average(p => p.Price);
+            Console.WriteLine("Category 1 average prices: " + resultado13);
+
+            //programacao defensiva caso a colecao seja vazia 
+            var resultado14 = products.Where(p => p.Category.Id == 5).Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+            Console.WriteLine("Category 5 Average Prices: " + resultado14);
+
+            //Com o aggregate é possível implementar uma operação agregada personalizada
+            var resultado15 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate(0.0, (x,y) => x + y);
+            Console.WriteLine("Category 1 aggregate sum: " + resultado15);
+            Console.WriteLine();
+
+            var resultado16 = products.GroupBy(p => p.Category);
+            foreach(IGrouping<Category, Product> group in resultado16)
+            {
+                Console.WriteLine("Category " + group.Key.Name + ": ");
+                foreach(Product p in group)
+                {
+                    Console.WriteLine(p);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
