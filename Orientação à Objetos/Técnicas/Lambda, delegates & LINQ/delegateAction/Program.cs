@@ -1,13 +1,11 @@
 ﻿using Entities;
 
-namespace delegatePredicate
+namespace delegateAction
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //Quero remover aqueles produtos que custam 100 ou mais
-
             List<Product> list = new List<Product>();
 
             list.Add(new Product("Tv", 900.00));
@@ -15,17 +13,21 @@ namespace delegatePredicate
             list.Add(new Product("Tablet", 350.00));
             list.Add(new Product("HD case", 80.90));
 
-            //list.RemoveAll(p => p.Price >= 100.0); // lambda, nesse caso nao precisaria criar a funcao ProductTest
-            list.RemoveAll(ProductTest);
+            Action<Product> act = UpdatePrice;
+            // p => { p.Price += p.Price * 0.1; }; //lambda
+
+            list.ForEach(act);
             foreach(Product p in list)
             {
                 Console.WriteLine(p);
             }
         }
 
-        static bool ProductTest(Product p)
+        static void UpdatePrice(Product p)
         {
-            return p.Price >= 100.0;
+            // aumenta o preco dos produtos em 10%
+            p.Price += p.Price * 0.1;
         }
+
     }
 }
