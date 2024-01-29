@@ -1,0 +1,17 @@
+API - Application Programming Interface
+
+Uma API é um serviço disponível na internet para aplicações se comunicarem entre si,
+exemplo: sistema de Cadastro de produto e sistema de vendas, eles se comunicam através de APIs.
+
+Vantagens:
+- Uma API feita em uma linguagem consegue se comunicar com outra de outra linguagem
+  por causa do modelo JSON.
+
+- Reutilização de código: As APIs também promovem a reutilização de código, uma vez que permitem que funcionalidades 
+específicas de um sistema sejam acessadas e utilizadas por outros sistemas, sem a necessidade de reimplementação.
+
+- Modularidade: Ao dividir um sistema em componentes distintos, cada um com sua própria API, 
+é possível alcançar um design modular, facilitando a manutenção e o desenvolvimento incremental do software.
+
+- Segurança: As APIs também desempenham um papel importante na segurança dos sistemas, 
+permitindo a implementação de autenticação e autorização para controlar o acesso aos dados e funcionalidades disponibilizados.
